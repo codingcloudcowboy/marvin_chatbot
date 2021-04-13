@@ -1,6 +1,6 @@
 # marvin_chatbot
 
-## Steps
+## Steps to run Rasa
 1. Navigate to the correct directory. Train the model.
 
 ```rasa train```
