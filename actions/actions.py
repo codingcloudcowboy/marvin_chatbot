@@ -98,7 +98,7 @@ class TrackStocks(Action):
             stock = yf.Ticker(stock)
             price = stock.info["regularMarketPrice"] 
             #send text
-            send_text('+15126589792', "'The price of '+str(search_term)+' is '+str(price)+' '+str(stock.info["currency"])")
+            send_text('+15126589792', 'The price of '+str(search_term)+' is '+str(price)+' '+str(stock.info["currency"]))
             return 'The price of '+str(search_term)+' is '+str(price)+' '+str(stock.info["currency"])
 
         except:
