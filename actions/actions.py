@@ -74,12 +74,12 @@ class TrackStocks(Action):
                 "facebook":"FB",
                 "tesla":"TSLA",
             }
-        try:
+            
+        try: 
             stock = stocks[search_term]
             stock = yf.Ticker(stock)
-            price = stock.info["regularMarketPrice"]
-
-            return 'The price of '+search_term+' is '+price+' '+stock.info["currency"]
+            price = stock.info["regularMarketPrice"]        
+            return 'The price of '+str(search_term)+' is '+str(price)+' '+str(stock.info["currency"])
 
         except:
             return 'oops, something went wrong'
