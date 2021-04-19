@@ -10,6 +10,24 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 #from stock import search_stock, track_stock_price
 
+#azure sms funtion
+import os
+from azure.communication.sms import SmsClient
+# Create the SmsClient object which will be used to send SMS messages, also authenticates to azure
+sms_client = SmsClient.from_connection_string('endpoint=https://armtexttest.communication.azure.com/;accesskey=5EMxfFuvkAoVA77e1U1eG9w8SJwBKAgXID1r7fIiLWk1rEfTcxMY9wWYs/ysRFD+a3bDjz9YhrfkJ8cnCymR/g==')
+########
+def send_text(tel_number, text):
+    sms_responses = sms_client.send(
+    from_="+18334821558", # has to be this number, it has been purchased
+    # to=["+12103820029", "+12103834324", "+19728375227"], #this is how you do multiple numbers
+    to=tel_number,
+    message=text
+    ) # optional property
+
+####
+#send_text('+14693867024', "This is sunday")
+
+
 
 class ActionMedication(Action):
 
@@ -78,7 +96,9 @@ class TrackStocks(Action):
         try: 
             stock = stocks[search_term]
             stock = yf.Ticker(stock)
-            price = stock.info["regularMarketPrice"]        
+            price = stock.info["regularMarketPrice"] 
+            #send text
+            send_text('+15126589792', "'The price of '+str(search_term)+' is '+str(price)+' '+str(stock.info["currency"])")
             return 'The price of '+str(search_term)+' is '+str(price)+' '+str(stock.info["currency"])
 
         except:
