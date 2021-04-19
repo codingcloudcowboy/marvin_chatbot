@@ -97,7 +97,7 @@ nlu:
     - medication
     - medicine
     - pills
-
+    
 - intent: stocks
   examples: |
     - stocks
@@ -105,3 +105,13 @@ nlu:
     - stock
     - crypto
     - check stocks
+    
+- intent: track_stock
+  examples: |
+    -apple
+    -facebook
+    -tesla
+    
+- intent: notify_stock_price
+  examples: |
+    -\d{1,5}

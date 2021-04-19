@@ -48,3 +48,7 @@ stories:
   steps:
     - intent: stocks
     - action: action_check_stocks
+    - intent: track_stock
+    - action: action_track_stocks
+    - intent: notify_stock_price
+    - action: action_notify_stock_price

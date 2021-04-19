@@ -10,6 +10,8 @@ intents:
   - bot_challenge
   - medication
   - stocks
+  - track_stock
+  - notify_stock_price
 
 responses:
   utter_greet:
@@ -38,7 +40,13 @@ responses:
   - text: "Please take your meds!"
 
   action_check_stocks:
-  - text: "Stocks feature currently unavailable. Try again later!"
+  - text: "What stock do you want to track?"
+  
+  action_track_stocks:
+  - text: "What price to track?"
+  
+  action_notify_stock_price:
+  - text: "Price hit!"
 
 session_config:
   session_expiration_time: 60
